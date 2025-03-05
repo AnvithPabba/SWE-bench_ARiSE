@@ -134,7 +134,7 @@ def create_conda_env(
         path_to_reqs = get_requirements(instance, temp_dir)
         # Make sure to deactivate so that we can remove the environment.
         # This is necessary if we are running the setup script multiple times.
-        cmd = f"source {activate_path} {env_name} && echo 'activate successful' && python -m pip install -r {path_to_reqs} ; source {deactivate_path}"
+        cmd = f"bash -c 'source {activate_path} {env_name} && echo 'activate successful' && python -m pip install -r {path_to_reqs} ; source {deactivate_path}'" # modified to add bash -c so that it works in a non root mode
         logger.info(
             f"[{env_name}] Installing dependencies for {env_name}; Command: {cmd}"
         )
@@ -175,7 +175,7 @@ def create_conda_env(
         pip_packages = install["pip_packages"]
         # Make sure to deactivate so that we can remove the environment.
         # This is necessary if we are running the setup script multiple times.
-        cmd = f"source {activate_path} {env_name} && python -m pip install {pip_packages} ; source {deactivate_path}"
+        cmd = f"bash -c 'source {activate_path} {env_name} && python -m pip install {pip_packages} ; source {deactivate_path}'" # modified to add bash -c so that it works in a non root mode
         logger.info(
             f"[{env_name}] Installing pip packages for {env_name}; Command: {cmd}"
         )
