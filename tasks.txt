@@ -1,6 +1,1 @@
-astropy__astropy-12907
-astropy__astropy-14182
-astropy__astropy-14365
-astropy__astropy-14995
-astropy__astropy-6938
-astropy__astropy-7746
+sphinx-doc__sphinx-10325
