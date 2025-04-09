@@ -196,7 +196,7 @@ def collect_install_instructions(repo_full: str, version: str) -> Tuple[List[str
     install_cmd = ""
     if "pre_install" in specification:
         # pre_install is a list of commands
-        pre_install_cmds = [pre_install_cmd.replace("'","\'") for pre_install_cmd in specification["pre_install"]] #Modification so that sphinx commands work in rootless mode
+        pre_install_cmds = specification["pre_install"]
     if "install" in specification:
         # install is just one command
         install_cmd = specification["install"]
